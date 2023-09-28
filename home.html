@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample form</title>
+
+
+    <style>
+ th{
+    border: 1px solid;
+    padding: 5px;
+    width: 400px;
+ }
+
+
+
+    </style>
+</head>
+<body>
+    <center>
+<br><br>
+
+<h1>Recieved Claims </h1><br><br>
+<?php
+$conn=mysql_connect('localhost','root','');
+$sel=mysql_select_db('sample');
+$a=mysql_query("select * from comment");
+?>
+ <table>
+<tr>
+<th>ID</th><th>FULL NAME</th><th>EMAIL</th><th>SUBJECT</th><th>MESSAGE</th>
+</tr>
+<?php
+while($rw=mysql_fetch_array($a))
+{
+?>
+<tr><td colspan="5">
+    <hr>
+</td></tr>
+    <tr>
+        <td><?php echo $rw['id'];?></td>
+        <td><?php echo $rw['fullname'];?></td>
+        <td><?php echo $rw['email'];?></td>
+        <td><?php echo $rw['subject'];?></td>
+        <td><?php echo $rw['message'];?></td>
+
+
+</tr>
+<?php
+}
+?>
+ </table>  
+
+
+
+
+</center>
+</form>
+</body>
+</html>
